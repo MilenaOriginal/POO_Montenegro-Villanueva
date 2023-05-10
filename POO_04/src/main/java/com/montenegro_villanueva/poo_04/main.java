@@ -14,7 +14,7 @@ public class main {
     public static void main(String[] args) {
         String empresa = datoEmpre();
         Empleado[] empleado = DatoEmple();
-        System.out.println("La empresa se llama: " + empresa + " Y estos son sus datos: " + empleado);
+        System.out.println("La empresa se llama: " + empresa + " Gracias por participar");
     }
 
     private static String datoEmpre() {
@@ -27,6 +27,7 @@ public class main {
 
     private static Empleado[] DatoEmple() {
         Scanner lector = new Scanner(System.in);
+        Subordinados[] lista;
         System.out.println("Cuantos empleados va a ingresar: ");       
         int cant =lector.nextByte();
         Empleado[] empleado = new Empleado[cant];
@@ -36,7 +37,7 @@ public class main {
         double precent = 5/100 * sueldo;
         for (int i = 0; i < cant; i++) {
             SueldoNeto[] suelN = new SueldoNeto[cant];
-            System.out.println("Ingrese el cargo de su empleado \n" + "1. Directivo \n" + "2. Subordinado");
+            System.out.println("Ingrese el cargo de su empleado \n" + "Directivo \n" + "Subordinado");
             String tipo = lector.next();
             System.out.println("Ingrese el DNI del empleado: ");
             int dni = lector.nextInt();
@@ -53,7 +54,7 @@ public class main {
                 cliente[a] = datoCliente();
             }
             if(tipo.equals("directivo")){
-                Subordinados[] lista = datoSubordinado();
+                lista = datoSubordinado();
                 suelN[i] = new SueldoNeto (tipo, sueldo, obraSo, jubil, precent);
                 empleado[i] = new Directivo (dni, nom, ape, edad, cliente, suelN[i]);
                //int d, String n, String a, int e, Cliente[] c, SueldoNeto s 
@@ -88,7 +89,7 @@ public class main {
             System.out.println("Ingrese cuento clientes tiene: ");
             int cancliS = lector.nextInt();
             Cliente[] clienteS = new Cliente[cancliS];
-            for (int a = 0; a < 10; a++) {
+            for (int a = 0; a < cancliS; a++) {
                 clienteS[a] = datoCliente();
             }
             double sueldoD = sueldo + 20/100 * sueldo;
